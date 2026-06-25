@@ -44,13 +44,42 @@ async def summarizing(file: UploadFile = File(...)):
             for shape in slide.shapes:
                 if hasattr(shape, "text"):
                     text += shape.text + "\n"
+                    
     prompt = f"""
-    Summarize these notes.
+    You are an expert study assistant.
 
-    Give:
-    1. Short Summary
-    2. Key Points
-    3. Important Questions
+    Analyze the following notes and create a concise but comprehensive summary.
+
+    Instructions:
+    - Include all important concepts, definitions, formulas, and facts.
+    - Remove repetition and unnecessary details.
+    - Use clear headings and bullet points.
+    - Keep the summary brief and easy to revise from.
+    - If the notes contain examples, mention them only if they help explain a concept.
+    - If there are formulas or code snippets, preserve them exactly.
+
+    Output format:
+
+    # Short Summary
+    A 4-6 sentence overview of the entire document.
+
+    # Key Concepts
+    - Concept 1: Explanation
+    - Concept 2: Explanation
+    - ...
+
+    # Important Points
+    - Point 1
+    - Point 2
+    - ...
+
+    # Formulas / Definitions (if any)
+    - ...
+
+    # Potential Exam Questions
+    1. ...
+    2. ...
+    3. ...
 
     Notes:
     {text}
