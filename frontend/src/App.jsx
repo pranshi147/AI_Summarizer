@@ -5,8 +5,8 @@ function Summarizer(){
   const [summ, setSumm]= useState("");
 
   const Upload= async() => {
-    if(!file.name.endsWith(".pdf") && !file.name.endsWith(".docx")){
-      alert("Invalid Document! It must be a PDF or DOCX");
+    if(!file.name.endsWith(".pdf") && !file.name.endsWith(".docx") && !file.name.endsWith(".pptx")){
+      alert("Invalid Document! It must be a PDF, DOCX or PPT");
       return;
   }
     else{
@@ -31,7 +31,7 @@ function Summarizer(){
 
   return(
     <>
-    <input type="file" accept=".pdf, .docx" onChange={(e) => setFile(e.target.files[0])}>
+    <input type="file" accept=".pdf, .docx, .pptx" onChange={(e) => setFile(e.target.files[0])}>
     </input>
     <button onClick={Upload}> Summarize </button>
     <h3>Summary:</h3>

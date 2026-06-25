@@ -2,6 +2,7 @@ from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 import google.generativeai as genai
 from pypdf import PdfReader
+from pptx import Presentation
 from docx import Document
 from io import BytesIO
 import uvicorn
@@ -36,6 +37,13 @@ async def summarizing(file: UploadFile = File(...)):
         for para in reader.paragraphs:
             text+=para.text + "\n"
 
+    elif file.filename.endswith(".pptx"):
+        content = await file.read()
+        presentation = Presentation(BytesIO(content))
+        for slide in presentation.slides:
+            for shape in slide.shapes:
+                if hasattr(shape, "text"):
+                    text += shape.text + "\n"
     prompt = f"""
     Summarize these notes.
 
