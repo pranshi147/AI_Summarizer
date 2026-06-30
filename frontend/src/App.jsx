@@ -1,46 +1,79 @@
 import { useState } from "react";
+import "./App.scss";
+import Navbar from "./components/Navbar/Navbar";
+import Hero from "./components/Hero/Hero";
+import Upload from "./components/Upload/Upload";
+import Summary from "./components/Summary/Summary";
+import Loader from "./components/Loader/Loader";
+import Features from "./components/Features/Features";
+import Footer from "./components/Footer/Footer";
+import StarBackground from "./components/Background/StarBackground";
+function App() {
+  const [file, setFile] = useState(null);
+  const [summary, setSummary] = useState("");
+  const [loading, setLoading] = useState(false);
 
-function Summarizer(){
-  const [file, setFile]= useState(null);
-  const [summ, setSumm]= useState("");
-
-  const Upload= async() => {
-    if(!file.name.endsWith(".pdf") && !file.name.endsWith(".docx") && !file.name.endsWith(".pptx")){
-      alert("Invalid Document! It must be a PDF, DOCX or PPT");
+  const handleUpload = async () => {
+    if (!file) {
+      alert("Please select a file.");
       return;
-  }
-    else{
-      alert("Successfully Uploaded");
     }
 
-    const form= new FormData();
-    form.append("file", file);
+    const allowed = [".pdf", ".docx", ".pptx"];
+    const validFile = allowed.some((type) => file.name.endsWith(type));
 
-    const response= await fetch(
-      "http://localhost:8000/summarize", 
-      {
+    if (!validFile) {
+      alert("Only PDF, DOCX and PPTX files are supported.");
+      return;
+    }
+
+    setLoading(true);
+
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const res = await fetch("http://localhost:8000/summarize", {
         method: "POST",
-        body: form,
-      }
-      );
+        body: formData,
+      });
 
-      const data= await response.json();
-      console.log(data)
-      setSumm(data.summ);
+      const data = await res.json();
+      setSummary(data.summ);
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong.");
+    }
+
+    setLoading(false);
   };
 
-  return(
-    <>
-    <input type="file" accept=".pdf, .docx, .pptx" onChange={(e) => setFile(e.target.files[0])}>
-    </input>
-    <button onClick={Upload}> Summarize </button>
-    <h3>Summary:</h3>
-    {
-      summ=="" ? <pre></pre> : <pre>{summ}</pre>
-    }
-    </>
+  return (
+    <main className="app">
+      <div className="bg-circle one"></div>
+      <div className="bg-circle two"></div>
+<StarBackground />
+<div className="page">
+      <Navbar />
+
+      <Hero />
+
+      <Upload
+    file={file}
+    setFile={setFile}
+    loading={loading}
+    handleUpload={handleUpload}
+/>
+
+      {loading && <Loader />}
+
+      <Summary summary={summary} />
+      <Features />
+      <Footer />
+      </div>
+
+    </main>
   );
+}
 
-  }
-
-  export default Summarizer
+export default App;

@@ -1,8 +1,11 @@
-import { createRoot } from 'react-dom/client'
-import Summarizer from "./App.jsx"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
 
-createRoot(document.getElementById('root')).render(
-  <>
-  <Summarizer />
-  </>
-)
+import "./index.css"; // or "./index.scss"
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

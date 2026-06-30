@@ -1,0 +1,27 @@
+@use "./styles/variables" as *;
+@use "./styles/globals";
+@use "./styles/animations";
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: $bg;
+}
+
+main {
+  position: relative;
+  z-index: 2;
+}
+
+section {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+
+.page {
+  position: relative;
+  z-index: 2;
+}
