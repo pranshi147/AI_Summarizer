@@ -33,10 +33,12 @@ function App() {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://localhost:8000/summarize", {
-        method: "POST",
-        body: formData,
-      });
+      const API_URL = import.meta.env.VITE_API_URL;
+
+const res = await fetch(`${API_URL}/summarize`, {
+  method: "POST",
+  body: formData,
+});
 
       const data = await res.json();
       setSummary(data.summ);
