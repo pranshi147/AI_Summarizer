@@ -132,15 +132,15 @@ http://localhost:5173
 
 ### Home Page
 
-_Add screenshots here_
+!("C:\Users\Pranshi\OneDrive\Pictures\Screenshots\Screenshot 2026-07-02 000942.png")
 
 ### Upload Document
 
-_Add screenshots here_
+!("C:\Users\Pranshi\OneDrive\Pictures\Screenshots\Screenshot 2026-07-02 001134.png")
 
 ### Generated Summary
 
-_Add screenshots here_
+!("C:\Users\Pranshi\OneDrive\Pictures\Screenshots\Screenshot 2026-07-02 001231.png")
 
 ---
 
@@ -191,7 +191,7 @@ GitHub:
 https://github.com/pranshi147
 
 LinkedIn:
-(Add your LinkedIn profile)
+www.linkedin.com/in/pranshimittal
 
 ---
 
