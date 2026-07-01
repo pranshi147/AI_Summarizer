@@ -1,19 +1,25 @@
 # 📄 AI Summarizer
 
-An AI-powered document summarization web application that helps students and professionals quickly extract key information from lengthy documents. Upload your notes or study material in PDF, DOCX, or PPTX format and receive a concise AI-generated summary within seconds.
+An AI-powered document summarizer that extracts text from **PDF**, **DOCX**, and **PPTX** files and generates concise, structured summaries using **Google Gemini 2.5 Flash**.
+
+🔗 **Live Demo:** https://ai-summarizer-ecru.vercel.app/
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-- 📄 Upload PDF, DOCX, and PPTX documents
-- 🤖 AI-generated document summaries
-- ⚡ Fast and responsive user interface
-- 🎨 Modern glassmorphism-inspired UI
-- 🌌 Animated starry background with shooting stars
-- 📋 Copy generated summaries with one click
-- 📱 Responsive design for desktop and mobile devices
-- 📝 Markdown rendering for structured summaries
+- 📄 Upload PDF documents
+- 📝 Upload DOCX documents
+- 📊 Upload PowerPoint (PPTX) presentations
+- 🤖 AI-generated summaries using Gemini 2.5 Flash
+- 📌 Organized output with:
+  - Short Summary
+  - Key Concepts
+  - Important Points
+  - Formulas & Definitions
+  - Potential Exam Questions
+- ⚡ Fast and responsive React interface
+- 🌐 Fully deployed (Frontend + Backend)
 
 ---
 
@@ -22,17 +28,24 @@ An AI-powered document summarization web application that helps students and pro
 ### Frontend
 - React
 - Vite
-- SCSS
-- React Icons
-- React Markdown
+- JavaScript
+- CSS
 
 ### Backend
 - FastAPI
 - Python
 
-### AI & NLP
-- Hugging Face Transformers
-- Natural Language Processing (NLP)
+### AI
+- Google Gemini 2.5 Flash API
+
+### Document Processing
+- PyPDF
+- python-docx
+- python-pptx
+
+### Deployment
+- Frontend: Vercel
+- Backend: Render
 
 ---
 
@@ -47,16 +60,19 @@ AI_Summarizer/
 │   └── package.json
 │
 ├── backend/
-│   ├── main.py
+│   ├── src/
+│   │   └── app.py
 │   ├── requirements.txt
-│   └── models/
+│   └── .env
+│
+├── images/
 │
 └── README.md
 ```
 
 ---
 
-## 🚀 Installation
+## ⚙️ Installation
 
 ### 1. Clone the repository
 
@@ -76,15 +92,15 @@ cd backend
 python -m venv venv
 ```
 
-Activate the virtual environment.
+Activate virtual environment
 
-Windows
+**Windows**
 
 ```bash
 venv\Scripts\activate
 ```
 
-Mac/Linux
+**Mac/Linux**
 
 ```bash
 source venv/bin/activate
@@ -96,13 +112,19 @@ Install dependencies
 pip install -r requirements.txt
 ```
 
-Run FastAPI
+Create a `.env` file
 
-```bash
-uvicorn main:app --reload
+```env
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 ```
 
-Backend will start on
+Run the backend
+
+```bash
+uvicorn src.app:app --reload
+```
+
+Backend runs on
 
 ```
 http://localhost:8000
@@ -116,11 +138,21 @@ http://localhost:8000
 cd frontend
 
 npm install
+```
 
+Create a `.env` file
+
+```env
+VITE_API_URL=http://localhost:8000
+```
+
+Run
+
+```bash
 npm run dev
 ```
 
-Frontend will start on
+Frontend runs on
 
 ```
 http://localhost:5173
@@ -132,27 +164,61 @@ http://localhost:5173
 
 ### Home Page
 
-!(images\Screenshot 2026-07-02 000942.png)
+![Home Page](./images/home.png)
 
 ### Upload Document
 
-!(images\Screenshot 2026-07-02 001134.png)
+![Upload Document](./images/upload.png)
 
 ### Generated Summary
 
-!(images\Screenshot 2026-07-02 001231.png)
+![Generated Summary](./images/summary.png)
+
+---
+
+## 🌐 Deployment
+
+### Frontend
+
+- Vercel
+
+### Backend
+
+- Render
+
+---
+
+## 📌 API Endpoint
+
+### POST `/summarize`
+
+Upload a supported document.
+
+**Supported formats**
+
+- PDF
+- DOCX
+- PPTX
+
+Returns
+
+```json
+{
+  "summ": "Generated AI Summary..."
+}
+```
 
 ---
 
 ## 🔮 Future Improvements
 
-- Drag-and-drop document upload
-- Support for TXT and Markdown files
-- Download summary as PDF
-- Multiple summarization styles
-- Multilingual summarization
-- User authentication
-- Summary history
+- Drag & Drop Upload
+- Summary Download (PDF/DOCX)
+- Chat with Document
+- Multiple Language Support
+- User Authentication
+- Summary History
+- Dark/Light Theme Toggle
 
 ---
 
@@ -163,19 +229,19 @@ Contributions are welcome!
 1. Fork the repository
 2. Create a feature branch
 
-```
+```bash
 git checkout -b feature-name
 ```
 
 3. Commit your changes
 
-```
+```bash
 git commit -m "Added new feature"
 ```
 
-4. Push your branch
+4. Push
 
-```
+```bash
 git push origin feature-name
 ```
 
@@ -187,18 +253,11 @@ git push origin feature-name
 
 **Pranshi Mittal**
 
-GitHub:
-https://github.com/pranshi147
-
-LinkedIn:
-www.linkedin.com/in/pranshimittal
+- **GitHub:** https://github.com/pranshi147
+- **LinkedIn:** https://www.linkedin.com/in/pranshimittal/
 
 ---
 
-## ⭐ Show your support
+## ⭐ Support
 
-If you found this project useful, consider giving it a ⭐ on GitHub.
-
-## 📜 License
-
-This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.
+If you found this project useful, consider giving it a ⭐ on GitHub!
