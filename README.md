@@ -132,15 +132,15 @@ http://localhost:5173
 
 ### Home Page
 
-!("C:\Users\Pranshi\OneDrive\Pictures\Screenshots\Screenshot 2026-07-02 000942.png")
+!(C:\Users\Pranshi\OneDrive\Pictures\Screenshots\Screenshot 2026-07-02 000942.png)
 
 ### Upload Document
 
-!("C:\Users\Pranshi\OneDrive\Pictures\Screenshots\Screenshot 2026-07-02 001134.png")
+!(C:\Users\Pranshi\OneDrive\Pictures\Screenshots\Screenshot 2026-07-02 001134.png)
 
 ### Generated Summary
 
-!("C:\Users\Pranshi\OneDrive\Pictures\Screenshots\Screenshot 2026-07-02 001231.png")
+!(C:\Users\Pranshi\OneDrive\Pictures\Screenshots\Screenshot 2026-07-02 001231.png)
 
 ---
 
