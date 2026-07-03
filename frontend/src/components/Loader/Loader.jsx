@@ -10,7 +10,7 @@ function Loader() {
 
         <h2>Generating Summary</h2>
 
-        <p>Please wait while we process your document.</p>
+        <p>⏳ Generating your summary... If this is your first request, it may take up to a minute while the backend starts up. Subsequent requests are usually much faster.</p>
 
       </div>
 
